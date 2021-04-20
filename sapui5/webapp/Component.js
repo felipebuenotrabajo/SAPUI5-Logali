@@ -6,7 +6,7 @@ sap.ui.define([
     /**
      * @param {type of "sap.ui.model.resource.ResourceModel"} ResourceModel
      * @param {type of "sap.ui.core.UIComponent"} UIComponent
-     * @param {type of "logaligroupa21.sapui5.models.models"} models
+     * @param {type of "logaligroupa21.sapui5.model.models"} models
      */
 
     function (UIComponent, models, ResourceModel) {

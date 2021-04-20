@@ -7,8 +7,7 @@ sap.ui.define([
      * @param {type of sap.m.MessageToast} MessageToast
      */
     function (Controller, MessageToast) {
-
-        return nd("logaligroupa21.sapui5.controller.App", {
+        return Controller.extend("logaligroupa21.SAPUI5.controller.App", {
 
             onInit: function() {
                 
