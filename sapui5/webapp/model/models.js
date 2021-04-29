@@ -1,7 +1,7 @@
 sap.ui.define([
     "sap/ui/model/json/JSONModel"
 ],
-    /**
+    /**55
       * @param {type of sap.ui.model.json.JSONModel} JSONModel
       */
     function (JSONModel) {

@@ -2,7 +2,7 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/m/MessageToast"
 ],
-    /**xx
+    /**
      * @param {type of sap.ui.core.mvc.Controller } Controller 
      * @param {type of sap.m.MessageToast} MessageToast
      */
