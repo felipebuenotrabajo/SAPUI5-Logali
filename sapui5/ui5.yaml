@@ -23,4 +23,3 @@ server:
     configuration:
      port: 35729
      path: webapp
-s
