@@ -1,14 +1,12 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/m/MessageToast",
-    "sap/ui/core/Fragment"
+    "sap/m/MessageToast"
 ],
     /**
      * @param {type of sap.ui.core.mvc.Controller } Controller 
      * @param {type of sap.m.MessageToast} MessageToast
-     * @param {type of sap.ui.core.Fragment} Fragment
      */
-    function (Controller, MessageToast, Fragment) {
+    function (Controller, MessageToast) {
 
         "use strict";
 
@@ -29,26 +27,7 @@ sap.ui.define([
             },
 
             onOpenDialog: function () {
-
-                const oView = this.getView();
-
-                //Si no está instanciado, lo instanciamos
-                if (!this.byId("helloDialog")) {
-                    Fragment.load({
-                        id: oView.getId(),
-                        name: "logaligroupa21.sapui5.view.HelloDialog",
-                        controller: this
-                    }).then(function (oDialog) {
-                        oView.addDependent(oDialog);
-                        oDialog.open();
-                    });
-                } else {
-                    this.byId("helloDialog").open();
-                }
-            },
-
-            onCloseDialog: function () {
-                this.byId("helloDialog").close();
+                this.getOwnerComponent().openHelloDialog();
             }
 
         });
