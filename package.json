@@ -12,6 +12,6 @@
     "rimraf": "3.0.0"
   },
   "dependencies": {
-    "@sap/ux-ui5-tooling": "^1.1.9"
+    "@sap/ux-ui5-tooling": "^1.1.10"
   }
 }

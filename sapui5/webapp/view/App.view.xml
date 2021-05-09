@@ -10,8 +10,6 @@
                 <Page title="{i18n>appTitle}">
                     <content>
                         <mvc:XMLView viewName="logaligroupa21.sapui5.view.HelloPanel"/>
-                        
-                        <core:Fragment fragmentName="logaligroupa21.sapui5.view.Form01" type="XML"/>
                     </content>
                 </Page>
             </pages>
