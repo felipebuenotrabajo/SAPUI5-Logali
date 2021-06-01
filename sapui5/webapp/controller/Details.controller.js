@@ -9,10 +9,12 @@ sap.ui.define([
      * @param {typeof sap.ui.core.routing.History } History 
      * @param {typeof sap.ui.core.UIComponent } UIComponent 
      */
-    function (Controller, History) {
+    function (Controller, History, UIComponent) {
         return Controller.extend("logaligroupa21.SAPUI5.controller.Details", {
 
             _onObjectMatch: function (oEvent) {
+            //Obtenemos la instancia de la vista o incluso con el identificador(Details.view.xml)                
+                this.byId("rating").reset()
                 this.getView().bindElement({
                     path: "/" + window.decodeURIComponent(oEvent.getParameter("arguments").invoicePath),
                     model: "northwind"
@@ -35,6 +37,12 @@ sap.ui.define([
                     const oRouter = UIComponent.getRouterFor(this);
                     oRouter.navTo("RouteApp", {}, true);
                 }
+            },
+
+            onRatingChange: function(oEvent) {
+                const fValue = oEvent.getParameter("value");
+                const oResourceBundle = this.getView().getModel("i18n").getResourceBundle();
+                sap.m.MessageToast.show(oResourceBundle.getText("ratingConfirmation",[fValue]));
             }
         })
     });
