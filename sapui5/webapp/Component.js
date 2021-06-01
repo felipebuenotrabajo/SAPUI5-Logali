@@ -5,9 +5,9 @@ sap.ui.define([
     "./controller/helloDialog"
 ],
     /**
-     * @param {type of "sap.ui.model.resource.ResourceModel"} ResourceModel
-     * @param {type of "sap.ui.core.UIComponent"} UIComponent
-     * @param {type of "logaligroupa21.sapui5.model.models"} models
+     * @param {typeof sap.ui.model.resource.ResourceModel } ResourceModel
+     * @param {typeof sap.ui.core.UIComponent } UIComponent
+     * @param {typeof logaligroupa21.sapui5.model.models } models
      */
 
     function (UIComponent, models, ResourceModel, helloDialog) {
@@ -15,7 +15,7 @@ sap.ui.define([
         return UIComponent.extend("logaligroupa21.sapui5.Component", {
 
             metadata: {
-                manifest : "json"
+                manifest: "json"
             },
 
             init: function () {
@@ -26,20 +26,24 @@ sap.ui.define([
                 // set data Model on the view
                 this.setModel(models.createRecipient());
 
+                //Comentamos la instancia del i18n porque ya se carga en el manifest
                 // set i18n Model on the view
-                var i18nModel = new ResourceModel({ bundleName: "logaligroupa21.sapui5.i18n.i18n" });
-                this.setModel(i18nModel, "i18n");
+                //var i18nModel = new ResourceModel({ bundleName: "logaligroupa21.sapui5.i18n.i18n" });
+                //this.setModel(i18nModel, "i18n");
 
                 this._helloDialog = new helloDialog(this.getRootControl());
 
+                //Create the views based on the url/hash
+                this.getRouter().initialize();
+
             },
 
-            exit: function() {
+            exit: function () {
                 this._helloDialog.destroy();
                 delete this._helloDialog;
             },
-            
-            openHelloDialog: function() {
+
+            openHelloDialog: function () {
                 this._helloDialog.open();
             }
 

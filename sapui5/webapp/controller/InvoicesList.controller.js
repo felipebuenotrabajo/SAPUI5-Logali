@@ -8,10 +8,10 @@ sap.ui.define([
 ],
     /**
      * 
-     * @param {sap.ui.core.mvc.Controller} Controller 
-     * @param {sap.ui.model.json.JSONModel'} JSONModel
-     * @param {sap.ui.model.Filter'} Filter  
-     * @param {sap.ui.model.FilterOperator'} FilterOperator  
+     * @param {typeof sap.ui.core.mvc.Controller} Controller 
+     * @param {typeof sap.ui.model.json.JSONModel} JSONModel
+     * @param {typeof sap.ui.model.Filter'} Filter  
+     * @param {typeof typeof sap.ui.model.FilterOperator} FilterOperator  
      */
 
     function (Controller, JSONModel, InvoicesFormatter, Filter, FilterOperator) {
@@ -37,6 +37,15 @@ sap.ui.define([
                     const oList = this.getView().byId("invoiceList");
                     const oBinding = oList.getBinding("items");
                     oBinding.filter(aFilter);
+            },
+
+            navigateToDetails : function(oEvent) {
+                const oItem = oEvent.getSource();
+                const oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+                oRouter.navTo("Details", {
+                    invoicePath: window.encodeURIComponent(oItem.getBindingContext("northwind").getPath().substr(1))
+                });
+
             }
 
         })
