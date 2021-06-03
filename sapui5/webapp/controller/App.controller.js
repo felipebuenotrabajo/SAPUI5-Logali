@@ -8,7 +8,7 @@ sap.ui.define([
         return Controller.extend("logaligroupa21.SAPUI5.controller.App", {
 
             onInit: function() {
-                
+                this.getView().addStyleClass(this.getOwnerComponent().getContentDensityClass());
             },
             onOpenDialogHeader: function () {
                 this.getOwnerComponent().openHelloDialog();
